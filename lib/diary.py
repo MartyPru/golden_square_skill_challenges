@@ -33,5 +33,8 @@ class Diary:
             if abs(words_can_read - entry.count_words()) <= closest_entry_diff:
                 closest_entry_diff = abs(words_can_read - entry.count_words())
                 closest_entries = [entry]
-        title = [entry.title for entry in closest_entries]
-        return title
+        title = {entry.title : entry.contents for entry in closest_entries}
+        if len(title) == 0:
+            return []
+        else:
+            return title

@@ -52,4 +52,4 @@ def test_selects_appropriate_entries_for_reading_speed_and_time():
     diary.add(entry_1)
     diary.add(entry_2)
     diary.add(entry_3)
-    assert diary.find_best_entry_for_reading_time(15, 1) == ['Title 2']
+    assert diary.find_best_entry_for_reading_time(15, 1) == {'Title 2' : 'This is the second entry in the diary. Some extra words.'}
