@@ -2,7 +2,7 @@ class DiaryEntry:
     def __init__(self, title, contents):
         self.title = title
         self.contents = contents
-        self.reading_location = 0
+        self._reading_location = 0
 
     def format(self):
         return f'{self.title}: {self.contents}'
@@ -19,8 +19,8 @@ class DiaryEntry:
     def reading_chunk(self, wpm, minutes):
         words_can_read = wpm * minutes
         split_string = self.format().split()
-        if self.reading_location >= len(split_string):
-            self.reading_location = 0
-        string = ' '.join(split_string[self.reading_location:(self.reading_location + words_can_read)])
-        self.reading_location += words_can_read
+        if self._reading_location >= len(split_string):
+            self._reading_location = 0
+        string = ' '.join(split_string[self._reading_location:(self._reading_location + words_can_read)])
+        self._reading_location += words_can_read
         return string
